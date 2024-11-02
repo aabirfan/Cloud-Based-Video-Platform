@@ -1,0 +1,25 @@
+.video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.video-container {
+    width: 320px;
+}
+
+.thumbnail-image {
+    width: 100%;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.thumbnail-image:hover {
+    transform: scale(1.05);
+}
+
+.video-player {
+    width: 100%;
+    border-radius: 8px;
+}
