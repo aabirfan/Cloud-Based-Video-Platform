@@ -10,7 +10,7 @@ The Video Sharing App enables users to:
 - Store videos and thumbnails in Amazon S3.
 - Store metadata and user info in MongoDB (hosted on EC2).
 - View videos using pre-signed S3 URLs.
-- Enforce authorization rules using Cognito Groups.
+- Enforce authorisation rules using Cognito Groups.
 
 ## Cloud Architecture
 
