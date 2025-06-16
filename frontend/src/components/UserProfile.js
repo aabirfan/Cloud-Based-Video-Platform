@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CognitoUserPool } from 'amazon-cognito-identity-js';
+import config from '../config';
 import {
     Box,
     Container,
@@ -10,11 +11,10 @@ import {
     Alert
 } from '@mui/material';
 
-const poolData = {
-    UserPoolId: 'ap-southeast-2_e311RfTfz', 
-    ClientId: '1tp9mg2i4kih1ko1a9nbk7pe2q'  
-};
-const userPool = new CognitoUserPool(poolData);
+const userPool = new CognitoUserPool({
+    UserPoolId: config.cognito.UserPoolId,
+    ClientId: config.cognito.ClientId,
+});
 
 const UserProfile = () => {
     const [userData, setUserData] = useState({ email: '' });

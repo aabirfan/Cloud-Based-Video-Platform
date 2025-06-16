@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { CognitoUserPool } from 'amazon-cognito-identity-js';
 import { useNavigate } from 'react-router-dom';
 import { Box, Button, Container, TextField, Typography, Alert } from '@mui/material';
+import config from '../config';
 
-const poolData = {
-    UserPoolId: 'ap-southeast-2_e311RfTfz',
-    ClientId: '1tp9mg2i4kih1ko1a9nbk7pe2q'
-};
-const userPool = new CognitoUserPool(poolData);
+const userPool = new CognitoUserPool({
+    UserPoolId: config.cognito.UserPoolId,
+    ClientId: config.cognito.ClientId
+});
 
 function Register() {
     const [username, setUsername] = useState('');
