@@ -1,15 +1,21 @@
 const jwt = require('express-jwt');  
 const jwksRsa = require('jwks-rsa');
 
+const {
+    COGNITO_JWKS_URI,
+    COGNITO_AUDIENCE,
+    COGNITO_ISSUER
+} = process.env;
+
 const authenticateJwt = jwt({
     secret: jwksRsa.expressJwtSecret({
         cache: true,
         rateLimit: true,
         jwksRequestsPerMinute: 5,
-        jwksUri: 'https://cognito-idp.ap-southeast-2.amazonaws.com/ap-southeast-2_e311RfTfz/.well-known/jwks.json',
+        jwksUri: COGNITO_JWKS_URI,
     }),
-    audience: '1tp9mg2i4kih1ko1a9nbk7pe2q',
-    issuer: 'https://cognito-idp.ap-southeast-2.amazonaws.com/ap-southeast-2_e311RfTfz',
+    audience: COGNITO_AUDIENCE,
+    issuer: COGNITO_ISSUER,
     algorithms: ['RS256'],
     getToken: (req) => {
         

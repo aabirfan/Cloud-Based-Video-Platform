@@ -21,14 +21,14 @@ app.use(cors());
 app.use(morgan('dev'));
 
 const s3Client = new S3Client({
-    region: 'ap-southeast-2',
-    credentials: fromSSO({ profile: 'default' }) 
+    region: process.env.AWS_REGION,
+    credentials: fromSSO({ profile: process.env.AWS_PROFILE || 'default' })
 });
 
-const S3_BUCKET = 'videostorage-aaban';
+const S3_BUCKET = process.env.AWS_S3_BUCKET;
 
 
-mongoose.connect('mongodb://localhost:27017/videosharingapp')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/videosharingapp')
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Error connecting to MongoDB:', err));
 

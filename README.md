@@ -31,3 +31,7 @@ The Video Sharing App enables users to:
 - **Stateless Design**: All persistent data is stored in S3 and MongoDB.
 - **Secure Access**: Videos accessed via time-limited pre-signed URLs.
 - **Video Processing**: Automatic transcoding to multiple resolutions using FFmpeg.
+
+## Configuration
+
+Create `.env` files in the `backend` and `frontend` directories based on the provided `.env.example` templates. These environment variables store credentials such as the Cognito User Pool identifiers and S3 bucket name so that sensitive values are not committed to the repository.

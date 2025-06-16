@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CognitoUserPool, CognitoUser } from 'amazon-cognito-identity-js';
+import config from '../config';
 import { useNavigate } from 'react-router-dom';
 import {
     Container,
@@ -10,11 +11,10 @@ import {
     Alert
 } from '@mui/material';
 
-const poolData = {
-    UserPoolId: 'ap-southeast-2_e311RfTfz', // Replace with your User Pool ID
-    ClientId: '1tp9mg2i4kih1ko1a9nbk7pe2q'   
-};
-const userPool = new CognitoUserPool(poolData);
+const userPool = new CognitoUserPool({
+    UserPoolId: config.cognito.UserPoolId,
+    ClientId: config.cognito.ClientId
+});
 
 function VerifyAccount() {
     const [username, setUsername] = useState('');
